@@ -10961,8 +10961,8 @@
       },
       {
         "current": {
-          "text": "Asia/Kolkata",
-          "value": "Asia/Kolkata"
+          "text": "Asia/Bangkok",
+          "value": "Asia/Bangkok"
         },
         "description": "Your local time zone for grouping stats",
         "label": "Local Time Zone",
