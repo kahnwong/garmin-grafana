@@ -10979,7 +10979,7 @@
             "value": "America/Toronto"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "Asia/Kolkata",
             "value": "Asia/Kolkata"
           },
