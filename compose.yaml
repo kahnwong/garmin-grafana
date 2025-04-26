@@ -1,0 +1,36 @@
+services:
+  influxdb:
+    container_name: influxdb
+    env_file:
+      - .env
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    image: 'influxdb:1.11'
+  grafana:
+    image: grafana/grafana:11.6.1
+    container_name: grafana
+    volumes:
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    depends_on:
+      - grafana_db
+  grafana_db:
+    container_name: grafana_db
+    image: postgres:17.2-alpine
+    #    ports:
+    #      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+volumes:
+  influxdb_data:
+  postgres_data:
