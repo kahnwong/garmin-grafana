@@ -5,7 +5,7 @@ services:
     depends_on:
       - influxdb
     volumes:
-      - /home/kahnwong/.garminconnect:/home/appuser/.garminconnect
+      - ./data/.garminconnect:/home/appuser/.garminconnect
     env_file:
       - .env
   influxdb:
