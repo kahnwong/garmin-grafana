@@ -1,4 +1,13 @@
 services:
+  garmin-fetch-data:
+    image: thisisarpanghosh/garmin-fetch-data:latest
+    container_name: garmin-fetch-data
+    depends_on:
+      - influxdb
+    volumes:
+      - /home/kahnwong/.garminconnect:/home/appuser/.garminconnect
+    env_file:
+      - .env
   influxdb:
     container_name: influxdb
     env_file:
@@ -14,6 +23,7 @@ services:
     volumes:
       - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./dashboards:/var/lib/grafana/dashboards
     env_file:
       - .env
     ports:
