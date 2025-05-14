@@ -16,7 +16,7 @@ services:
     #   - '8086:8086'
     volumes:
       - influxdb_data:/var/lib/influxdb
-    image: 'influxdb:1.11'
+    image: 'influxdb:2.7'
   grafana:
     image: grafana/grafana:12.0.0
     container_name: grafana
