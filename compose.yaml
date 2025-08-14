@@ -33,7 +33,7 @@ services:
       - grafana_db
   grafana_db:
     container_name: grafana_db
-    image: postgres:17.5-alpine
+    image: postgres:17.6-alpine
     #    ports:
     #      - 5432:5432
     env_file:
